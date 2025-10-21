@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'Lumache'
+project = 'CHESS'
 copyright = '2026, Duan'
 author = 'd'
 
