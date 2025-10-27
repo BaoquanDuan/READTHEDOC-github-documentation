@@ -3,20 +3,19 @@ version: 2
 build:
   os: ubuntu-22.04
   tools:
-    python: "3.12"
+    python: "3.11"
   commands:
-    # 在 Sphinx 构建前，先把 CHESS.Rmd 转为 Markdown
-    - python docs/rmd_to_md_rtd.py
+    - python docs/rmd_to_md_rtd.py   # 渲染 Rmd -> Markdown
 
-
-sphinx:
-  configuration: docs/source/conf.py
+conda:
+  environment: docs/environment.yml   # conda 环境
 
 python:
   install:
     - requirements: requirements.txt
-conda:
-  environment: docs/environment.yml
+
+sphinx:
+  configuration: docs/source/conf.py
 
 formats:
   - htmlzip
