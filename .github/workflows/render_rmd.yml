@@ -1,6 +1,5 @@
 name: Render Rmd for ReadTheDocs
 
-# 可以手动触发，也可以在 Rmd 文件改动时触发
 on:
   push:
     paths:
@@ -12,24 +11,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 拉取仓库
+      # 1. 检出仓库代码
       - uses: actions/checkout@v3
 
-      # 安装 R
+      # 2. 设置 R 环境（官方 action，稳定）
       - uses: r-lib/actions/setup-r@v2
         with:
-          r-version: '4.3.1'
+          r-version: '4.3.1'  # 可根据需要调整
 
-      # 安装 R 包依赖
+      # 3. 安装系统依赖（Pandoc、libcurl、libssl、libxml2）
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc libcurl4-openssl-dev libssl-dev libxml2-dev
+
+      # 4. 安装 R 包依赖
       - name: Install R packages
         run: |
-          Rscript -e 'install.packages(c("rmarkdown","knitr","mvtnorm","MASS","Rcpp","RcppArmadillo","remotes"), repos="https://cloud.r-project.org")'
+          Rscript -e 'install.packages(c(
+            "rmarkdown", "knitr", "mvtnorm", "MASS", 
+            "Rcpp", "RcppArmadillo", "remotes"), 
+            repos="https://cloud.r-project.org")'
 
-      # 渲染 Rmd -> Markdown
-      - name: Render CHESS.Rmd
+      # 5. 安装开发版本的 CHESS（如果需要）
+      - name: Install CHESS package
         run: |
-          Rscript -e "rmarkdown::render('rmd/CHESS.Rmd', output_file='docs/source/CHESS.md', output_format='md_document')"
+          Rscript -e 'remotes::install_github("xxx/CHESS")'
 
-      # 可选：列出生成文件
-      - name: List output
+      # 6. 渲染 Rmd -> Markdown，用于 RTD
+      - name: Render CHESS.Rmd to Markdown
+        run: |
+          Rscript -e "rmarkdown::render(
+            input='rmd/CHESS.Rmd', 
+            output_file='docs/source/CHESS.md', 
+            output_format='md_document')"
+
+      # 7. 列出生成文件确认
+      - name: List output files
         run: ls -l docs/source/
