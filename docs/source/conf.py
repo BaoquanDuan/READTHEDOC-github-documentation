@@ -14,6 +14,8 @@ version = '0.1.0'
 
 # -- General configuration
 
+python rmd_to_md_rtd.py
+
 extensions = [
     'myst_parser',       # 支持 .md 文件
     'sphinx_rtd_theme',
