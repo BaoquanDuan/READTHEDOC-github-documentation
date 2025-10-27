@@ -3,11 +3,13 @@
     You can adapt this file completely to your liking, but it should at least
     contain the root `toctree` directive.
  ​
- Welcome to CHESS documentation!
- =================================
- ​
- .. toctree::
-    :maxdepth: 2
-    :caption: Contents:
-​
-CHESS
+Welcome to My Documentation!
+=============================
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   CHESS  # 这是你要添加的文件名
