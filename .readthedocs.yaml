@@ -4,6 +4,7 @@ build:
   os: "ubuntu-22.04"
   tools:
     python: "3.12"
+    r: "4.2"  # 确保安装 R 环境
 
 python:
   install:
@@ -14,3 +15,6 @@ python:
 sphinx:
   configuration: docs/source/conf.py
   fail_on_warning: true
+formats:
+  - html
+  - pdf
