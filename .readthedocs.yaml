@@ -7,7 +7,8 @@ build:
 
 sphinx:
   configuration: docs/source/conf.py   # 指向你的 conf.py 位置
-
+  commands:
+    - Rscript -e 'install.packages("rmarkdown", repos="https://cloud.r-project.org")'
 apt_packages:
   - r-base      # 安装 R 基础环境
   - libcurl4-openssl-dev  # R 常用依赖
