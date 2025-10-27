@@ -23,7 +23,11 @@ extensions = [
 
 # myst-parser 配置，支持 R 代码块
 myst_enable_extensions = [
-    "colon_fence",          # 支持 ::: 语法
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "html_admonition",
+    "html_image",
 ]
 myst_code_languages = ["python", "r", "bash", "c", "cpp", "java"]
 
