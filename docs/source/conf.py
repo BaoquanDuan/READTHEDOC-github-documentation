@@ -10,6 +10,8 @@ version = '0.1.0'
 extensions = [
     'myst_parser',         # 支持 Markdown
     'sphinx_rtd_theme',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
 ]
 
 templates_path = ['_templates']
