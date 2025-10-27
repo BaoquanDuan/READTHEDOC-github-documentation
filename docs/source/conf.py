@@ -9,7 +9,7 @@ project = 'CHESS'
 copyright = '2026, Duan'
 author = 'd'
 
-release = '0.1'
+release = '1.0.0'
 version = '0.1.0'
 
 # -- General configuration
