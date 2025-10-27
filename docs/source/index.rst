@@ -11,4 +11,3 @@
     :caption: Contents:
 ​
 CHESS
- ==================
