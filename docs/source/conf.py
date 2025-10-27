@@ -22,6 +22,8 @@ extensions = [
     'sphinx.ext.intersphinx',    
     'recommonmark',
     'sphinx_markdown_tables',
+    'myst_parser',       # 支持 .md 文件
+    'sphinx_rtd_theme',
 ]
 
 source_parsers = {
