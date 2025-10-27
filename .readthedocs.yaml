@@ -12,5 +12,3 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.11"
-  commands:
-    - echo "RTD build: only building Markdown, no Rscript needed"
