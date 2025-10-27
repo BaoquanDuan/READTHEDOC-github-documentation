@@ -25,7 +25,11 @@ source_parsers = {
     '.md': 'recommonmark.parser.CommonMarkParser',
 }
 
-source_suffix = ['.rst', '.md']
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+    '.Rmd': 'rmarkdown',         # 允许 .Rmd 文件
+}
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
