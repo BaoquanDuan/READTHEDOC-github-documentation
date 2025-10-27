@@ -19,6 +19,12 @@ extensions = [
     'sphinx_rtd_theme',
 ]
 
+# myst-parser 配置，支持 R 代码块
+myst_enable_extensions = [
+    "colon_fence",          # 支持 ::: 语法
+]
+myst_code_languages = ["python", "r", "bash", "c", "cpp", "java"]
+
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
