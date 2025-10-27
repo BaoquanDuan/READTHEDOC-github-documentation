@@ -1,14 +1,14 @@
 version: 2
 
+conda:
+  environment: docs/environment.yml
+
 build:
   os: ubuntu-22.04
   tools:
     python: "3.11"
   commands:
-    - python docs/rmd_to_md_rtd.py   # 渲染 Rmd -> Markdown
-
-conda:
-  environment: docs/environment.yml   # conda 环境
+    - python docs/rmd_to_md_rtd.py   # 这时 Conda 环境已激活，Rscript 可用
 
 python:
   install:
